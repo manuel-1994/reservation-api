@@ -1,16 +1,13 @@
-import type { NextFunction, Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import ReservationModel from '../../models/reservation.model';
+import httpResponse from '../../utils/httpResponse';
 
-async function getReservations(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
+async function getReservations(req: Request, res: Response) {
   try {
-    const reservations = await ReservationModel.find();
-    res.json(reservations);
-  } catch (error) {
-    next(error);
+    const reservations = await ReservationModel.find().lean();
+    httpResponse.Ok(res, reservations);
+  } catch (error: any) {
+    httpResponse.InternalServerError(res, error.message);
   }
 }
 
