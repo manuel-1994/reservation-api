@@ -1,7 +1,7 @@
 import { model } from 'mongoose';
 import reservationSchema from '../schemas/reservation.schema';
 
-type ReservationDoc = {
+type ReservationsDoc = {
   _id: 'string';
   reservationDate: 'String';
   reservationHour: 'String';
@@ -15,8 +15,8 @@ type ReservationDoc = {
   updatedAt: 'Date';
 };
 
-const ReservationModel = model<ReservationDoc>(
-  'Reservation',
+const ReservationModel = model<ReservationsDoc>(
+  'Reservations',
   reservationSchema
 );
 
