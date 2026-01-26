@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import { connectMongoDB } from './db/mongo.db';
 import { ENV } from './config/env.config';
 import router from './router';
@@ -10,6 +11,7 @@ async function bootstrap() {
   /*middlewares */
   app.use(cors());
   app.use(express.json());
+  app.use(cookieParser());
 
   /*dbConnection */
   await connectMongoDB();

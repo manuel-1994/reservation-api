@@ -1,14 +1,13 @@
 import type { Request, Response } from 'express';
 import UserModel from '../../models/user.model';
 import httpResponse from '../../utils/httpResponse';
-import type IResponse from '../../interfaces/IResponse';
 
 const errorMessage = 'User not found';
 
 async function getUserById(
   req: Request,
   res: Response
-): Promise<Response<IResponse>> {
+){
   try {
     const user = await UserModel.findById(req.params.id).lean();
     if (user) return httpResponse.Ok(res, user);
