@@ -1,13 +1,6 @@
-import createUser from './createUser.controller';
-import getUsersController from './getUsers.controller';
-import getUserByIdController from './getUserById.controller';
-import updateUserController from './updateUser.controller';
-import deleteUserController from './deleteUser.controller';
+import getUsers from './getUsers.controller';
+import getUserById from './getUserById.controller';
+import updateUser from './updateUser.controller';
+import deleteUser from './deleteUser.controller';
 
-export {
-  createUser,
-  getUsersController,
-  getUserByIdController,
-  updateUserController,
-  deleteUserController,
-};
+export { getUsers, getUserById, updateUser, deleteUser };

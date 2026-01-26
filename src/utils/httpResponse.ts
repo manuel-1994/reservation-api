@@ -1,5 +1,4 @@
 import type { Response } from 'express';
-import { startSession } from 'mongoose';
 
 const enum HttpStatus {
   OK = 200,
@@ -9,6 +8,7 @@ const enum HttpStatus {
   UNAUTHORIZED = 401,
   FORBIDDEN = 403,
   NOT_FOUND = 404,
+  CONFLICT = 409,
   INTERNAL_SERVER_ERROR = 500,
 }
 
@@ -20,6 +20,7 @@ const httpResponse = {
       data,
     });
   },
+
   Created(res: Response, data: any) {
     return res.status(HttpStatus.CREATED).json({
       status: HttpStatus.CREATED,
@@ -27,9 +28,11 @@ const httpResponse = {
       data,
     });
   },
+
   NoContent(res: Response) {
     return res.status(HttpStatus.NO_CONTENT).json({});
   },
+
   BadRequest(res: Response, errorMessage: string) {
     return res.status(HttpStatus.BAD_REQUETS).json({
       status: HttpStatus.BAD_REQUETS,
@@ -37,6 +40,7 @@ const httpResponse = {
       errorMessage,
     });
   },
+
   Unauthorized(res: Response, errorMessage: string) {
     return res.status(HttpStatus.UNAUTHORIZED).json({
       status: HttpStatus.UNAUTHORIZED,
@@ -44,6 +48,7 @@ const httpResponse = {
       errorMessage,
     });
   },
+
   Forbidden(res: Response, errorMessage: string) {
     return res.status(HttpStatus.FORBIDDEN).json({
       status: HttpStatus.FORBIDDEN,
@@ -51,6 +56,7 @@ const httpResponse = {
       errorMessage,
     });
   },
+
   NotFound(res: Response, errorMessage: string) {
     return res.status(HttpStatus.NOT_FOUND).json({
       status: HttpStatus.NOT_FOUND,
@@ -58,6 +64,15 @@ const httpResponse = {
       errorMessage,
     });
   },
+
+  Conflict(res: Response, errorMessage: string) {
+    return res.status(HttpStatus.CONFLICT).json({
+      status: HttpStatus.CONFLICT,
+      statusMsg: 'Conflict',
+      errorMessage,
+    });
+  },
+
   InternalServerError(res: Response, errorMessage: string) {
     return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
       status: HttpStatus.INTERNAL_SERVER_ERROR,

@@ -4,7 +4,7 @@ import httpResponse from '../../utils/httpResponse';
 
 const errorMessage = 'User not found';
 
-async function deleteUserController(req: Request, res: Response) {
+async function deleteUser(req: Request, res: Response) {
   try {
     const user = await UserModel.findByIdAndDelete(req.params.id).lean();
     if (user) return httpResponse.NoContent(res);
@@ -16,4 +16,4 @@ async function deleteUserController(req: Request, res: Response) {
   }
 }
 
-export default deleteUserController;
+export default deleteUser;

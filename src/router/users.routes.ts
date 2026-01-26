@@ -1,19 +1,19 @@
 import { Router } from 'express';
 import {
-  deleteUserController,
-  getUserByIdController,
-  getUsersController,
-  updateUserController,
+  deleteUser,
+  getUserById,
+  getUsers,
+  updateUser,
 } from '../controllers/users';
 
 function usersRoutes(mainRouter: Router) {
   const router = Router();
   mainRouter.use('/users', router);
 
-  router.get('/', getUsersController);
-  router.get('/:id', getUserByIdController);
-  router.patch('/:id', updateUserController);
-  router.delete('/:id', deleteUserController);
+  router.get('/', getUsers);
+  router.get('/:id', getUserById);
+  router.patch('/:id', updateUser);
+  router.delete('/:id', deleteUser);
 }
 
 export default usersRoutes;

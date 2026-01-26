@@ -4,7 +4,7 @@ import httpResponse from '../../utils/httpResponse';
 
 const errorMessage = 'User not found';
 
-async function updateUserController(req: Request, res: Response) {
+async function updateUser(req: Request, res: Response) {
   try {
     const user = await UserModel.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -18,4 +18,4 @@ async function updateUserController(req: Request, res: Response) {
   }
 }
 
-export default updateUserController;
+export default updateUser;

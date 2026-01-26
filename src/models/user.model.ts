@@ -4,8 +4,8 @@ import userSchema from '../schemas/user.schema';
 type UserDoc = {
   _id: 'string';
   username: 'String';
-  password: 'String';
   email: 'String';
+  password: 'String';
   createdAt: 'Date';
   updatedAt: 'Date';
 };

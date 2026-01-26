@@ -2,7 +2,7 @@ import type { Request, Response } from 'express';
 import UserModel from '../../models/user.model';
 import httpResponse from '../../utils/httpResponse';
 
-async function getUsersController(req: Request, res: Response) {
+async function getUsers(req: Request, res: Response) {
   try {
     const user = await UserModel.find().lean();
     return httpResponse.Ok(res, user);
@@ -11,4 +11,4 @@ async function getUsersController(req: Request, res: Response) {
   }
 }
 
-export default getUsersController;
+export default getUsers;
