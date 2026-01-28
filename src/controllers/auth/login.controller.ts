@@ -21,12 +21,8 @@ async function login(req: Request, res: Response) {
 
   const token = generateToken({
     _id: user._id,
-    username: user.username,
-    name: user.name,
-    lastName: user.lastName,
-    age: user.age,
-    address: user.address,
     email: user.email,
+    username: user.username,
   });
 
   tokenToCookie(res, token);

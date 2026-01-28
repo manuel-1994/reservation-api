@@ -22,12 +22,8 @@ async function register(req: Request, res: Response) {
 
     const token = generateToken({
       _id: user._id,
-      username: user.username,
       email: user.email,
-      name: user.name,
-      lastName: user.lastName,
-      age: user.age,
-      address: user.address,
+      username: user.username,
     });
     tokenToCookie(res, token);
     return httpResponse.Created(res, {
