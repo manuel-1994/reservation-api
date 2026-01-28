@@ -1,4 +1,4 @@
-# movie-reservatio-api
+# reservatio-api
 
 To install dependencies:
 
