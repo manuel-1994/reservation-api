@@ -1,4 +1,4 @@
-# reservatio-api
+# reservation-api
 
 To install dependencies:
 
