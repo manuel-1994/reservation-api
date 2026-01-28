@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
-import ReservationModel from '../../models/reservation.model';
-import httpResponse from '../../utils/httpResponse';
+import ReservationModel from '@/models/reservation.model';
+import httpResponse from '@/utils/httpResponse';
 
 const errorMessage = 'Reservation not found';
 

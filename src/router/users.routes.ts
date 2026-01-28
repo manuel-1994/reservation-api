@@ -5,8 +5,8 @@ import {
   getUsers,
   updateUser,
   getProfile,
-} from '../controllers/users';
-import verifyAuthToken from '../middlewares/authValidation';
+} from '@/controllers/users';
+import verifyAuthToken from '@/middlewares/authValidation';
 
 function usersRoutes(mainRouter: Router) {
   const router = Router();

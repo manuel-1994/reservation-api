@@ -1,16 +1,18 @@
-import type { Request, Response, NextFunction } from 'express';
-import httpResponse from '../utils/httpResponse';
+import type { Response, NextFunction } from 'express';
+import type { IUserRequest } from '@/interfaces/users/IUserRequest';
+import type { IUserJWTPayload } from '@/interfaces/users/IUserJWTPayload';
+import { ENV } from '@/config/env.config';
+import httpResponse from '@/utils/httpResponse';
 import jwt from 'jsonwebtoken';
 
-function verifyAuthToken(req: Request, res: Response, next: NextFunction) {
+function verifyAuthToken(req: IUserRequest, res: Response, next: NextFunction) {
   const { token } = req.cookies;
 
   if (!token) return httpResponse.Unauthorized(res, 'Token not found');
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
-
-    (req as any).user = decoded;
+    const payload = jwt.verify(token, ENV.JWT_SECRET) as IUserJWTPayload;
+    req.user = payload;
 
     return next();
   } catch (error) {

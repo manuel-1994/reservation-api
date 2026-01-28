@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import { connectMongoDB } from './db/mongo.db';
-import { ENV } from './config/env.config';
-import router from './router';
+import { connectMongoDB } from '@/db/mongo.db';
+import { ENV } from '@/config/env.config';
+import router from '@/router';
 
 async function bootstrap() {
   const app = express();

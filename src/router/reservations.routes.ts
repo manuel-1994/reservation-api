@@ -5,8 +5,8 @@ import {
   getReservationById,
   getReservations,
   updateReservation,
-} from '../controllers/reservations';
-import verifyAuthToken from '../middlewares/authValidation';
+} from '@/controllers/reservations';
+import verifyAuthToken from '@/middlewares/authValidation';
 
 function reservationRoutes(mainRouter: Router) {
   const router = Router();

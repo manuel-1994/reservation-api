@@ -1,8 +1,9 @@
+import type { IReservation } from '@/interfaces/reservations/IReservation';
 import { Schema } from 'mongoose';
 
-const reservationSchema = new Schema(
+const reservationSchema = new Schema<IReservation>(
   {
-    reservationDate: { type: Date, required: true },
+    reservationDate: { type: String, required: true },
     reservationHour: { type: String, required: true },
     name: { type: String, required: true },
     lastName: { type: String, required: true },

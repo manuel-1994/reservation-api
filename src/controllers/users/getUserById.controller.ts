@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
-import UserModel from '../../models/user.model';
-import httpResponse from '../../utils/httpResponse';
+import UserModel from '@/models/user.model';
+import httpResponse from '@/utils/httpResponse';
 
 const errorMessage = 'User not found';
 

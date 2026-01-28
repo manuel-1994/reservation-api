@@ -1,9 +1,9 @@
 import type { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
-import httpResponse from '../../utils/httpResponse';
-import UserModel from '../../models/user.model';
-import generateToken from '../../utils/generateToken';
-import tokenToCookie from '../../utils/tokenToCookie';
+import httpResponse from '@/utils/httpResponse';
+import UserModel from '@/models/user.model';
+import generateToken from '@/utils/generateToken';
+import tokenToCookie from '@/utils/tokenToCookie';
 
 async function login(req: Request, res: Response) {
   const { email, password } = req.body;
@@ -20,8 +20,12 @@ async function login(req: Request, res: Response) {
     return httpResponse.Unauthorized(res, 'Invalid credentials');
 
   const token = generateToken({
-    id: user._id,
+    _id: user._id,
     username: user.username,
+    name: user.name,
+    lastName: user.lastName,
+    age: user.age,
+    address: user.address,
     email: user.email,
   });
 
